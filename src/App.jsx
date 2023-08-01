@@ -15,13 +15,13 @@ function App() {
         <Route
           path="/register"
           element={
-            <RestrictedRoute redirectTo="phonebook" component={<RegisterPage />} />
+            <RestrictedRoute redirectTo="/phonebook" component={<RegisterPage />} />
           }
         />
         <Route
           path="/login"
           element={
-            <RestrictedRoute redirectTo="phonebook" component={<LoginPage />} />
+            <RestrictedRoute redirectTo="/phonebook" component={<LoginPage />} />
           }
         />
         <Route
