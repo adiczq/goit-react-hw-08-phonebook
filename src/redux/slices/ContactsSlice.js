@@ -1,52 +1,68 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { fetchContacts, addContact, deleteContact } from './operations';
 
-const API_BASE_URL = 'https://64c4fe7dc853c26efada5cea.mockapi.io';
+const initialState = {
+  contacts: [],
+  isLoading: false,
+  error: null,
+  sorting: null,
+};
 
-export const addContactToBackend = createAsyncThunk(
-  'contacts/addContactToBackend',
-  async newContact => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/contacts`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newContact),
-      });
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
 
-      if (!response.ok) {
-        throw new Error('Failed to add contact to the backend.');
-      }
+const handleFulfilled = state => {
+  state.isLoading = false;
+  state.error = null;
+};
 
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      throw new Error('Error while adding contact to the backend.');
-    }
-  }
-);
-
-const contactSlice = createSlice({
+const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: { contacts: [], filter: '' },
-
-  reducers: {
-    getFilter: {
-      reducer(state, action) {
-        state.filter = action.payload;
-      },
-    },
-
-    deleteContact: (state, action) => {
-      state.contacts = state.contacts.filter(el => el.id !== action.payload.id);
-    },
-  },
+  initialState,
+  reducers: {},
   extraReducers: builder => {
-    builder.addCase(addContactToBackend.fulfilled, (state, action) => {
-      state.contacts.unshift(action.payload);
+    // Fetch contacts from database
+    builder.addCase(fetchContacts.fulfilled, (state, action) => {
+      handleFulfilled(state);
+      state.contacts = action.payload;
     });
+
+    // Add contacts to database
+    builder.addCase(addContact.fulfilled, (state, action) => {
+      handleFulfilled(state);
+      state.contacts.push(action.payload);
+    });
+
+    // Delete contacts from database
+    builder.addCase(deleteContact.fulfilled, (state, action) => {
+      handleFulfilled(state);
+      const index = state.contacts.findIndex(
+        contact => contact.id === action.payload.id
+      );
+      state.contacts.splice(index, 1);
+    });
+
+    // Add all for pending and rejected
+    builder.addMatcher(
+      isAnyOf(fetchContacts.pending, addContact.pending, deleteContact.pending),
+      state => {
+        state.isLoading = true;
+      }
+    );
+
+    builder.addMatcher(
+      isAnyOf(
+        fetchContacts.rejected,
+        addContact.rejected,
+        deleteContact.rejected
+      ),
+      (state, action) => {
+        handleRejected(state, action);
+      }
+    );
   },
 });
 
-export const { deleteContact, getFilter } = contactSlice.actions;
-export default contactSlice.reducer;
+export const contactsReducer = contactsSlice.reducer;
