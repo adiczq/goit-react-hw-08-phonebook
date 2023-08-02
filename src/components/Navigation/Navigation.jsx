@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import css from "./Navigation.module.css";
+import { NavLink } from 'react-router-dom';
+import css from './Navigation.module.css';
 
 export const Navigation = () => {
   return (
@@ -7,8 +7,8 @@ export const Navigation = () => {
       <NavLink className={css.link} to="/">
         Home
       </NavLink>
-      <NavLink className={css.link} to="/tasks">
-        Tasks
+      <NavLink className={css.link} to="/phonebook">
+        Phonebook
       </NavLink>
     </nav>
   );
