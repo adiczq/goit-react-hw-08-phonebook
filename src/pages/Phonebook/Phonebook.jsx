@@ -1,7 +1,7 @@
 import css from './Phonebook.module.css';
 import { ContactForm, ContactList, Filter } from '../../components';
 
-const Tasks = () => {
+const Phonebook = () => {
   return (
     <>
       <div className={css.container}>
@@ -15,4 +15,4 @@ const Tasks = () => {
     </>
   );
 };
-export default Tasks;
+export default Phonebook;
