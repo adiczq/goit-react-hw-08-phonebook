@@ -42,20 +42,3 @@ function App() {
 }
 
 export default App;
-
-// import { ContactForm } from './components';
-// import { ContactList } from './components';
-// import { Filter } from './components';
-// import css from './App.module.css';
-
-// export function App() {
-//   return ()
-//     // <div className={css.container}>
-//     //   <h1>Phonebook</h1>
-//     //   <ContactForm />
-//     //   <h2>Contacts</h2>
-//     //   <Filter />
-//     //   <ContactList />
-//     // </div>
-
-// }

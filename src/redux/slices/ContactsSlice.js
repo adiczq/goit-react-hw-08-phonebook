@@ -31,7 +31,6 @@ const contactSlice = createSlice({
   initialState: { contacts: [], filter: '' },
 
   reducers: {
-    // Usuwamy kod związany z addContact
     getFilter: {
       reducer(state, action) {
         state.filter = action.payload;
@@ -42,7 +41,6 @@ const contactSlice = createSlice({
       state.contacts = state.contacts.filter(el => el.id !== action.payload.id);
     },
   },
-  // Dodajemy obsługę naszej asynchronicznej akcji thunk addContactToBackend
   extraReducers: builder => {
     builder.addCase(addContactToBackend.fulfilled, (state, action) => {
       state.contacts.unshift(action.payload);
