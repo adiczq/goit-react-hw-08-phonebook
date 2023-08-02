@@ -1,7 +1,7 @@
-import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
-import { AppBar } from "../AppBar";
-import css from "./Layout.module.css";
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+import css from './Layout.module.css';
+import { AppBar } from 'components/AppBar';
 
 export const Layout = ({ children }) => {
   return (
