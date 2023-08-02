@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/427.30feecf2.chunk.js","mappings":"qKAQA,UANc,kBACZ,4BACE,sCACA,SAAC,KAAD,MAHU,C","sources":["pages/Login/Login.jsx"],"sourcesContent":["import { LoginForm } from '../../components';\n\nconst Login = () => (\n  <div>\n    <title>Login</title>\n    <LoginForm />\n  </div>\n);\nexport default Login;\n"],"names":[],"sourceRoot":""}
