@@ -1,11 +1,8 @@
-import { Helmet } from "react-helmet";
-import { RegisterForm } from "../../components";
+import { RegisterForm } from '../../components';
 
 const Register = () => (
   <div>
-    <Helmet>
-      <title>Register</title>
-    </Helmet>
+    <title>Register</title>
     <RegisterForm />
   </div>
 );

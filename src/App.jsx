@@ -1,11 +1,11 @@
-import { Layout, PrivateRoute, RestrictedRoute } from "./components";
-import { lazy } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Layout, PrivateRoute, RestrictedRoute } from './components';
+import { lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-const HomePage = lazy(() => import("./pages/Home/Home"));
-const RegisterPage = lazy(() => import("./pages/Register/Register"));
-const LoginPage = lazy(() => import("./pages/Login/Login"));
-const PhonebookPage = lazy(() => import("./pages/Phonebook/Phonebook"));
+const HomePage = lazy(() => import('./pages/Home/Home'));
+const RegisterPage = lazy(() => import('./pages/Register/Register'));
+const LoginPage = lazy(() => import('./pages/Login/Login'));
+const PhonebookPage = lazy(() => import('./pages/Phonebook/Phonebook'));
 
 function App() {
   return (
@@ -15,13 +15,19 @@ function App() {
         <Route
           path="/register"
           element={
-            <RestrictedRoute redirectTo="/phonebook" component={<RegisterPage />} />
+            <RestrictedRoute
+              redirectTo="/phonebook"
+              component={<RegisterPage />}
+            />
           }
         />
         <Route
           path="/login"
           element={
-            <RestrictedRoute redirectTo="/phonebook" component={<LoginPage />} />
+            <RestrictedRoute
+              redirectTo="/phonebook"
+              component={<LoginPage />}
+            />
           }
         />
         <Route
@@ -37,9 +43,6 @@ function App() {
 
 export default App;
 
-
-
-
 // import { ContactForm } from './components';
 // import { ContactList } from './components';
 // import { Filter } from './components';
@@ -54,5 +57,5 @@ export default App;
 //     //   <Filter />
 //     //   <ContactList />
 //     // </div>
-  
+
 // }
