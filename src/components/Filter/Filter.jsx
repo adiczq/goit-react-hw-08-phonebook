@@ -1,4 +1,4 @@
-import { getFilter } from '../../redux/slices/ContactsSlice';
+import { addFilter } from '../../redux/slices/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './Filter.module.css';
 
@@ -6,7 +6,7 @@ export function Filter() {
   const dispatch = useDispatch();
   const filter = useSelector(state => state.contacts.filter);
   const handleFilter = event =>
-    dispatch(getFilter(event.currentTarget.value.toLowerCase()));
+    dispatch(addFilter(event.currentTarget.value.toLowerCase()));
 
   return (
     <div className={css.container}>
