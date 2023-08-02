@@ -1,14 +1,27 @@
+import { useDispatch } from 'react-redux';
 import { Layout, PrivateRoute, RestrictedRoute } from './components';
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
+
 import { Routes, Route } from 'react-router-dom';
+import { useAuth } from './hooks/useAuth';
+import { refreshUser } from './redux/auth/operations';
 
 const HomePage = lazy(() => import('./pages/Home/Home'));
 const RegisterPage = lazy(() => import('./pages/Register/Register'));
 const LoginPage = lazy(() => import('./pages/Login/Login'));
-const PhonebookPage = lazy(() => import('./pages/Phonebook/Phonebook'));
+const Phonebook = lazy(() => import('./pages/Phonebook/Phonebook'));
 
 function App() {
-  return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <div>Refreshing user...</div>
+  ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
@@ -31,9 +44,9 @@ function App() {
           }
         />
         <Route
-          path="/tasks"
+          path="/phonebook"
           element={
-            <PrivateRoute redirectTo="/login" component={<PhonebookPage />} />
+            <PrivateRoute redirectTo="/login" component={<Phonebook />} />
           }
         />
       </Route>
