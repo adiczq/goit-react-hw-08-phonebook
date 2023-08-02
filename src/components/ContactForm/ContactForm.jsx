@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addContactToBackend } from '../../redux/slices/ContactsSlice';
+import { addContact } from '../../redux/slices/operations';
 import css from './ContactForm.module.css';
 import { Notify } from 'notiflix';
 
@@ -39,7 +39,7 @@ export function ContactForm() {
       Notify.warning(`This number '${number}' already exists`);
     } else {
       try {
-        await dispatch(addContactToBackend({ name, number }));
+        await dispatch(addContact({ name, number }));
         setName('');
         setNumber('');
       } catch (error) {
