@@ -32,6 +32,7 @@ const authPersistConfig = {
 const contactsPersistConfig = {
   key: 'contacts',
   storage,
+  whitelist: ['token'],
 };
 
 export const store = configureStore({
