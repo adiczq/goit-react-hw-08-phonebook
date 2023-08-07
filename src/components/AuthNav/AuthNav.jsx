@@ -7,12 +7,12 @@ export const AuthNav = () => {
     <Nav variant="pills" defaultActiveKey="/">
       <Nav.Item>
         <Nav.Link as={NavLink} to="/register">
-          Register
+          <h4> Register</h4>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link as={NavLink} to="/login">
-          Login
+          <h4> Login</h4>
         </Nav.Link>
       </Nav.Item>
     </Nav>

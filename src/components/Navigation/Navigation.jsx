@@ -10,13 +10,13 @@ export const Navigation = () => {
     <Nav variant="pills" defaultActiveKey="/">
       <Nav.Item>
         <Nav.Link as={NavLink} to="/">
-          Home
+          <h4> Home </h4>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         {isLoggedIn && (
           <Nav.Link as={NavLink} to="/phonebook">
-            Phonebook
+            <h4> Phonebook</h4>
           </Nav.Link>
         )}
       </Nav.Item>
