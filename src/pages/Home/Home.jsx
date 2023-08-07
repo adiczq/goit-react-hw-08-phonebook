@@ -1,11 +1,11 @@
-import React from "react";
-import css from "./Home.module.css";
+import React from 'react';
+import css from './Home.module.css';
 
 const Home = () => (
   <div className={css.container}>
     <h1 className={css.title}>
-      {" "}
-      Phonebooks  welcome page{" "}
+      {' '}
+      Phonebooks welcome page{' '}
       <span role="img" aria-label="Greeting icon">
         💁‍♀️
       </span>

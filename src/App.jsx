@@ -1,10 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { Layout, PrivateRoute, RestrictedRoute } from './components';
 import { lazy, useEffect } from 'react';
-
+import css from './App.module.css';
 import { Routes, Route } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 import { refreshUser } from './redux/auth/operations';
+import Loader from 'components/Loader/Loader';
 
 const HomePage = lazy(() => import('./pages/Home/Home'));
 const RegisterPage = lazy(() => import('./pages/Register/Register'));
@@ -20,7 +21,9 @@ function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <div>Refreshing user...</div>
+    <div className={css.loader}>
+      <Loader />
+    </div>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
