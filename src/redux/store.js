@@ -29,19 +29,20 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-const contactsPersistConfig = {
-  key: 'contacts',
-  storage,
-};
+// const contactsPersistConfig = {
+//   key: 'contacts',
+//   storage,
+// };
 
 export const store = configureStore({
   reducer: {
-    contacts: persistReducer(contactsPersistConfig, contactsReducer),
+    // contacts: persistReducer(contactsPersistConfig, contactsReducer),
+    contacts: contactsReducer,
     filter: filterReducer,
     auth: persistReducer(authPersistConfig, authReducer),
   },
   middleware,
-  devTools: process.env.NODE_ENV === 'development',
+  // devTools: process.env.NODE_ENV === 'development',
 });
 
 export const persistor = persistStore(store);

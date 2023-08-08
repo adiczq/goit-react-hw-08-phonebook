@@ -1,8 +1,16 @@
 // import css from './Phonebook.module.css';
+import { useDispatch } from 'react-redux';
 import { ContactForm, ContactList, Filter } from '../../components';
 import Container from 'react-bootstrap/Container';
+import { useEffect } from 'react';
+import { fetchContacts } from 'redux/slices/operations';
 
 const Phonebook = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
   return (
     <>
       <Container className="d-flex justify-content-center w-75 ">
