@@ -20,6 +20,7 @@ export function Filter() {
           className="mb-3"
         >
           <Form.Control
+            className=" border-primary"
             type="text"
             name="filter"
             onChange={handleFilter}

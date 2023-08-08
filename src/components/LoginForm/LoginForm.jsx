@@ -30,6 +30,7 @@ const LoginForm = () => {
           className="mb-3"
         >
           <Form.Control
+            className=" border-primary"
             type="email"
             name="email"
             placeholder="name@example.com"
@@ -40,6 +41,7 @@ const LoginForm = () => {
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <FloatingLabel controlId="floatingPassword" label="Password">
           <Form.Control
+            className=" border-primary"
             type="password"
             name="password"
             placeholder="Password"

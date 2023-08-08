@@ -60,6 +60,7 @@ export function ContactForm() {
           className="mb-3"
         >
           <Form.Control
+            className=" border-primary"
             type="text"
             name="name"
             onChange={handleChange}
@@ -79,6 +80,7 @@ export function ContactForm() {
           className="mb-3"
         >
           <Form.Control
+            className=" border-primary"
             type="tel"
             name="number"
             onChange={handleChange}

@@ -29,7 +29,12 @@ const RegisterForm = () => {
           label="Username"
           className="mb-3"
         >
-          <Form.Control type="text" name="name" placeholder="Username" />
+          <Form.Control
+            className=" border-primary"
+            type="text"
+            name="name"
+            placeholder="Username"
+          />
         </FloatingLabel>
       </Form.Group>
 
@@ -40,6 +45,7 @@ const RegisterForm = () => {
           className="mb-3"
         >
           <Form.Control
+            className=" border-primary"
             type="email"
             name="email"
             placeholder="name@example.com"
@@ -53,6 +59,7 @@ const RegisterForm = () => {
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <FloatingLabel controlId="floatingPassword" label="Password">
           <Form.Control
+            className=" border-primary"
             type="password"
             name="password"
             placeholder="Password"
