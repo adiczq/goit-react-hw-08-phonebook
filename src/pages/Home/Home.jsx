@@ -3,7 +3,7 @@ import css from './Home.module.css';
 
 const Home = () => (
   <div className={css.container}>
-    <h1 className={(css.title, text - uppercase)}>Phonebooks welcome page</h1>
+    <h1 className={css.title}>Phonebooks welcome page</h1>
   </div>
 );
 export default Home;
