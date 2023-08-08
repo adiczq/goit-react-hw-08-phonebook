@@ -3,16 +3,15 @@ import { Outlet } from 'react-router-dom';
 import css from './Layout.module.css';
 import { AppBar } from 'components/AppBar/AppBar';
 import Loader from 'components/Loader/Loader';
+import Container from 'react-bootstrap/Container';
 
 export const Layout = () => {
   return (
-    <div className={css.container}>
+    <Container>
       <AppBar />
-      <div className={css.loader}>
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
-      </div>
-    </div>
+      <Suspense className={css.loader} fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
+    </Container>
   );
 };

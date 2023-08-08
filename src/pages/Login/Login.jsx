@@ -1,9 +1,10 @@
 import LoginForm from 'components/LoginForm/LoginForm';
+import Container from 'react-bootstrap/Container';
 
 const Login = () => (
-  <div>
+  <Container className="d-flex justify-content-center">
     <title>Login</title>
     <LoginForm />
-  </div>
+  </Container>
 );
 export default Login;

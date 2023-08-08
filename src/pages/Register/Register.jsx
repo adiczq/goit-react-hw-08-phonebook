@@ -1,9 +1,10 @@
 import RegisterForm from 'components/RegisterForm/RegisterForm';
+import Container from 'react-bootstrap/Container';
 
 const Register = () => (
-  <div>
+  <Container className="d-flex justify-content-center">
     <title>Register</title>
     <RegisterForm />
-  </div>
+  </Container>
 );
 export default Register;
